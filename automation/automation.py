@@ -1,10 +1,13 @@
 import re
+import glob   
 import shutil
 
-with open('/Users/garfieldgrant/code_Fellows/401Python/automation/assets/potential_contacts.txt') as file:
+with open('assets/potential_contacts.txt') as file:
   potential_contacts = file.read()
+
   
-# Regex to find telephone number
+#Regex to find telephone number
+
 telephone_number = []
 telephone_number.extend(re.findall('\d{3}[-\.\s]??\d{3}[-\.\s]??\d{4}|\(\d{3}\)\s*\d{3}[-\.\s]??\d{4}|\d{3}[-\.\s]??\d{4}', potential_contacts))
 
@@ -32,8 +35,8 @@ for string in email_remove_duplicates:
 
 # to write to new documents
 
-with open('/Users/garfieldgrant/code_Fellows/401Python/automation/assets/new_phone_numbers.txt', 'w') as file:
+with open('assets/new_phone_numbers.txt', 'w') as file:
   phone_number_only = file.write(phone_number)
   
-with open('/Users/garfieldgrant/code_Fellows/401Python/automation/assets/email_address.txt', 'w') as file:
+with open('assets/email_address.txt', 'w') as file:
   email_address_only = file.write(email_string)
